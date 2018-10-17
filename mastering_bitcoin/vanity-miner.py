@@ -1,3 +1,4 @@
+#Vanity miner (searching for an address containing a certain string)
 import bitcoin
 import os
 import codecs
