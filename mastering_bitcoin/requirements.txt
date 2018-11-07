@@ -1,5 +1,4 @@
-pybitcointools (used as bitcoin)
-python-bitcoinlib (used as bitcoin in rpc_example.py)
+pybitcointools
 pbkdf2
 mnemonic
 base58
