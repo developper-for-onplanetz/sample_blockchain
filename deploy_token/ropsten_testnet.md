@@ -207,8 +207,9 @@ Saving artifacts...
 
 11. **発行されたトークンのコントラクトアドレスを確認**  
 
-https\://ropsten.etherscan.io/token/トークンのコントラクトアドレス
+<https://ropsten.etherscan.io/token/>トークンのコントラクトアドレス
 >ex)https://ropsten.etherscan.io/token/0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db
 
 12. **metamaskでトークンを追加する。**  
 token contract addressに今回発行したトークンのアドレスを入力
+![参照1](https://user-images.githubusercontent.com/45306290/49565605-01188080-f96b-11e8-99f8-f9cbaa3bf242.png)
