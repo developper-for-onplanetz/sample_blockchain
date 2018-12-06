@@ -87,7 +87,8 @@ migrationsにディレクトリを移動した後、以下のjsファイルを�
 
 ```
 $ vi ./2_deploy_ONP_token.js
-
+```
+```
 var ONPToken = artifacts.require("./ONPToken.sol")
 
 module.exports = (deployer) => {
@@ -180,7 +181,7 @@ Writing artifacts to ./build/contracts
 ```
 $ truffle migrate --network [target_network]
 ```
->※　ropstenにマイグレートする場合には、truffle migrate --network ropsten
+>ropstenにマイグレートする場合には、$ truffle migrate --network ropsten
 
 migrationが成功した場合には、ターミナル上に以下のような表示がされる
 ```
@@ -202,11 +203,11 @@ Saving successful migration to network...
   ... 0xb3ce2a4b03c9633ab2ca5d49304f8b776eff908e5e9af4ac75e8bbec0801ced7
 Saving artifacts...
 ```
-***0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db*** がトークンのコントラクトアドレスにあたる
+***0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db*** がトークンのコントラクトアドレスにあたるので控えておく
 
-11. **発行されたトークンのコントラクトアドレスを確認**
-
-https://ropsten.etherscan.io/token/0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db
+11. **発行されたトークンのコントラクトアドレスを確認**  
+<https://ropsten.etherscan.io/token/>トークンのコントラクトアドレス
+>ex)https://ropsten.etherscan.io/token/0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db
 
 12. **metamaskでトークンを追加する。**  
 token contract addressに今回発行したトークンのアドレスを入力
