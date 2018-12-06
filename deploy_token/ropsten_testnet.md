@@ -1,7 +1,7 @@
 # ropsten testnetにERC20トークンをデプロイする
 
 
-##【前提】  
+## 【前提】  
 * npmとpythonが必要  
 * npmはnode.jsのインストールと合わせて、入手が可能  
 
@@ -191,7 +191,7 @@ Saving artifacts...
 Running migration: 2_deploy_ONP_token.js
   Deploying ONPToken...
   ... 0x4e77485af4a9e2ca465a15de928be1a841c8073c9fe6624c58df5f696ec9a4d3
-  ONPToken: ***0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db***
+  ONPToken: 0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db
 Saving successful migration to network...
   ... 0xb3ce2a4b03c9633ab2ca5d49304f8b776eff908e5e9af4ac75e8bbec0801ced7
 Saving artifacts...
