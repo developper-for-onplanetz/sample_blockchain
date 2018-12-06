@@ -206,7 +206,8 @@ Saving artifacts...
 ***0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db*** がトークンのコントラクトアドレスにあたるので控えておく
 
 11. **発行されたトークンのコントラクトアドレスを確認**  
-<https://ropsten.etherscan.io/token/>トークンのコントラクトアドレス
+
+https\://ropsten.etherscan.io/token/トークンのコントラクトアドレス
 >ex)https://ropsten.etherscan.io/token/0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db
 
 12. **metamaskでトークンを追加する。**  
