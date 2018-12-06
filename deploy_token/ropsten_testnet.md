@@ -5,7 +5,7 @@
 * npmとpythonが必要  
 * npmはnode.jsのインストールと合わせて、入手が可能  
 
-### -ubuntuの場合-
+### ubuntuの場合
 ```
 $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
@@ -21,7 +21,7 @@ $ npm install -g truffle`
 $ mkdir matsumoToken | cd matsumoToken
 $ truffle init
 ```
-	>これにより、コントラクトのコンパイル及び、ネットワークにマイグレーションするのに必要なファイルやフォルダの最小構成が作成される。
+>これにより、コントラクトのコンパイル及び、ネットワークにマイグレーションするのに必要なファイルやフォルダの最小構成が作成される。
 
 
 
@@ -62,6 +62,7 @@ $ sudo apt-get install build-essential
 ```
 
 >**注意3)** それでもインストール時にエラーが発生する場合には、以下のコードで再実行してみる。
+
 ```
 $ npm install –g truffle-hdwallet-provider
  ```
