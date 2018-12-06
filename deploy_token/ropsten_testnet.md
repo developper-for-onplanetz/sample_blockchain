@@ -65,7 +65,7 @@ $ sudo apt-get install build-essential
 
 ```
 $ npm install –g truffle-hdwallet-provider
- ```
+```
 
 4. metamaskのニーモニックを取得
 metamaskの登録時に発行されるニーモニック（metamaskを復元する際に使用する秘密鍵）を控えておく。
@@ -75,6 +75,7 @@ metamaskの登録時に発行されるニーモニック（metamaskを復元す�
 
 6. 発行するトークン情報を記述したsolidityファイルの作成
 contractsにディレクトリを移動してから、以下のファイルを作成する。
+
 ```
 $ vi ./ONPToken.sol
 ```
@@ -82,6 +83,7 @@ $ vi ./ONPToken.sol
 
 7. 発行するトークン情報を記述したjsファイルの作成
 migrationsにディレクトリを移動した後、以下のjsファイルを作成する
+
 ```
 $ vi ./2_deploy_ONP_token.js
 
