@@ -12,11 +12,11 @@ $ sudo apt-get install -y nodejs
 ```
 
 ### 【デプロイ方法】
-1. *truffleのインストール*
+1. **truffleのインストール**
 ```
 $ npm install -g truffle`
 ```
-2. *トークンのデプロイ用フォルダを作成し、truffleを初期化*
+2. **トークンのデプロイ用フォルダを作成し、truffleを初期化**
 ```
 $ mkdir matsumoToken | cd matsumoToken
 $ truffle init
@@ -25,14 +25,14 @@ $ truffle init
 
 
 
-3. *zeppelin solidityとtruffle hdwallet providerのインストール*
+3. **zeppelin solidityとtruffle hdwallet providerのインストール**
 ```
 $ npm install zeppelin-solidity@1.7.0
 $ npm install truffle-hdwallet-provider
 ```
 >[truffle hdwallet provider](https://github.com/trufflesuite/truffle-hdwallet-provider)  
 >**注意1** truffle hdwallet ledgerは、pythonのversionが3.5には対応していないため、python2.X系を使用するようにnpmのconfigをsetしてから、npm installする
->>```
+```
 $ npm config set python /path/to/python2.7
 ```
 >**注意2)** truffle hdwallet providerをインストールする過程で、node-gypをインストールするが、ubuntuの場合エラーが発生することがある。
@@ -67,13 +67,13 @@ $ sudo apt-get install build-essential
 $ npm install –g truffle-hdwallet-provider
 ```
 
-4. *metamaskのニーモニックを取得*
+4. **metamaskのニーモニックを取得**
 metamaskの登録時に発行されるニーモニック（metamaskを復元する際に使用する秘密鍵）を控えておく。
 トークン発行の際にGasが必要になるので、[無料で貰える1ETHを獲得しておく。](https://qiita.com/tmikada/items/cdc5a3871f655cb7b67d)
 
-5. *[infura](https://infura.io)のアカウントを取得する*
+5. **[infura](https://infura.io)のアカウントを取得する**
 
-6. *発行するトークン情報を記述したsolidityファイルの作成*
+6. **発行するトークン情報を記述したsolidityファイルの作成**
 contractsにディレクトリを移動してから、以下のファイルを作成する。
 
 ```
@@ -81,7 +81,7 @@ $ vi ./ONPToken.sol
 ```
 
 
-7. *発行するトークン情報を記述したjsファイルの作成*
+7. **発行するトークン情報を記述したjsファイルの作成**
 migrationsにディレクトリを移動した後、以下のjsファイルを作成する
 
 ```
@@ -96,7 +96,7 @@ module.exports = (deployer) => {
 }
 ```
 
-8. *truffle.jsの編集*
+8. **truffle.jsの編集**
 ```
 $vi truffle.js
 # 必要な変数の定義
@@ -132,7 +132,7 @@ export ROPSTEN_MNEMONIC="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 export INFURA_ACCESS_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
-9. *コントラクトをコンパイル*
+9. **コントラクトをコンパイル**
 ```
 $ truffle compile
 ```
@@ -173,7 +173,7 @@ Compilation warnings encountered:
 
 Writing artifacts to ./build/contracts
 ```
-10. *コンパイルが成功したら、以下コマンドでコントラクトをマイグレート*
+10. **コンパイルが成功したら、以下コマンドでコントラクトをマイグレート**
 ```
 $ truffle migrate --network [target_network]
 ```
@@ -201,9 +201,9 @@ Saving artifacts...
 ```
 ***0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db*** がトークンのコントラクトアドレスにあたる
 
-11. *発行されたトークンのコントラクトアドレスを確認*
+11. **発行されたトークンのコントラクトアドレスを確認**
 
 https://ropsten.etherscan.io/token/0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db
 
-12. *metamaskでトークンを追加する。*
+12. **metamaskでトークンを追加する。**
 token contract addressに今回発行したトークンのアドレスを入力
