@@ -70,7 +70,7 @@ $ npm install –g truffle-hdwallet-provider
 metamaskの登録時に発行されるニーモニック（metamaskを復元する際に使用する秘密鍵）を控えておく。
 トークン発行の際にGasが必要になるので、[無料で貰える1ETHを獲得しておく。](https://qiita.com/tmikada/items/cdc5a3871f655cb7b67d)
 
-5. infuraのアカウントを取得する
+5. [infura](https://infura.io)のアカウントを取得する
 
 6. 発行するトークン情報を記述したsolidityファイルの作成
 contractsにディレクトリを移動してから、以下のファイルを作成する。
@@ -81,6 +81,7 @@ $ vi ./ONPToken.sol
 
 7. 発行するトークン情報を記述したjsファイルの作成
 migrationsにディレクトリを移動した後、以下のjsファイルを作成する
+```
 $ vi ./2_deploy_ONP_token.js
 
 var ONPToken = artifacts.require("./ONPToken.sol")
@@ -90,9 +91,10 @@ module.exports = (deployer) => {
         deployer.deploy(ONPToken,initial_supply)
 
 }
+```
 
 8. truffle.jsの編集
-
+```
 $vi truffle.js
 # 必要な変数の定義
 var HDWalletProvider = require("truffle-hdwallet-provider");
@@ -115,19 +117,23 @@ module.exports = {
       gas: 4500000
     }
   }
+```
 
-補足1）truffle-hdwallet-providerの３番目の引数にindexを指定すればMetaMaskの他のアドレスを使うことが可能（設定しない場合は一つ目のアカウントを指定）
-ex)  new HDWalletProvider(mnemonic, "https://ropsten.infura.io/" + accessToken, 3);
-補足2)
+>補足1）truffle-hdwallet-providerの３番目の引数にindexを指定すればMetaMaskの他のアドレスを使うことが可能（設定しない場合は一つ目のアカウントを指定）
+>>ex)  new HDWalletProvider(mnemonic, "https://ropsten.infura.io/" + accessToken, 3);
+>補足2)
 mnemonic、accessTokenは環境変数から参照できるようにする。
 bashを使う場合には、~/.bash_profileに以下変数を追加する。
+```
 export ROPSTEN_MNEMONIC="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 export INFURA_ACCESS_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
 
 9. コントラクトをコンパイル
+```
 $ truffle compile
 
--------------------------------------------------------------
+---
 matsumototakuyanoMacBook-ea:ONPToken matsumototakuya$ truffle compile --all
 Compiling ./contracts/Migrations.sol...
 Compiling ./contracts/ONPToken.sol...
@@ -162,13 +168,16 @@ Compilation warnings encountered:
     ^-----------------------------------------------------------^
 
 Writing artifacts to ./build/contracts
-
+---
+```
 10. コンパイルが成功したら、以下コマンドでコントラクトをマイグレート
+```
 $ truffle migrate --network [target_network]
-※　ropstenにマイグレートする場合には、truffle migrate --network ropsten
+```
+>※　ropstenにマイグレートする場合には、truffle migrate --network ropsten
 
 migrationが成功した場合には、ターミナル上に以下のような表示がされる
---------------------------------------------------
+```
 matsumototakuyanoMacBook-ea:ONPToken matsumototakuya$ truffle migrate --network ropsten
 Using network 'ropsten'.
 
@@ -182,12 +191,13 @@ Saving artifacts...
 Running migration: 2_deploy_ONP_token.js
   Deploying ONPToken...
   ... 0x4e77485af4a9e2ca465a15de928be1a841c8073c9fe6624c58df5f696ec9a4d3
-  ONPToken: 0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db
+  ONPToken: ***0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db***
 Saving successful migration to network...
   ... 0xb3ce2a4b03c9633ab2ca5d49304f8b776eff908e5e9af4ac75e8bbec0801ced7
 Saving artifacts...
-----------------------------------------------------
-0xac80c7acb43b356a65ee9cc61ecb6bfac68c07dbがトークンのコントラクトアドレスにあたる
+---
+```
+***0xac80c7acb43b356a65ee9cc61ecb6bfac68c07db*** がトークンのコントラクトアドレスにあたる
 
 11. 発行されたトークンのコントラクトアドレスを確認
 
