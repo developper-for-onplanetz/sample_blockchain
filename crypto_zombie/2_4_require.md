@@ -1,13 +1,18 @@
 ## 2-4 : Require
 
 ### 概要
->Requireとは
+#### Requireとは
 
 - ある条件を満たさない場合はエラーを投げて実行を止めることができるもの
 
 
 ### コード
-- 問題
+#### 問題
+
+1. requireを使い、最初のゾンビを作るときだけこの関数が呼び出せるようにせよ。
+
+1. createRandomZombieの最初にrequire ステートメントを記述せよ。この関数でownerZombieCount[msg.sender] が 0であるかを確認し、そうでなければエラーを投げるように設定せよ。
+
 ```
 function createRandomZombie(string _name) public {
        // ここから始めるのだ
@@ -16,7 +21,7 @@ function createRandomZombie(string _name) public {
    }
 ```
 
-- 正解
+#### 正解
 
 ```
 function createRandomZombie(string _name) public {

@@ -13,19 +13,20 @@
 
 
 ### コード
-- 問題
-```
-Zombie[] public zombies;
+#### 問題
 
+1. zombieToOwnerという名前のマッピングを作成せよ。キーは uintとし(idを基にゾンビを参照・保管するぞ）、バリューはaddressとする。マッピングはpublicで作成せよ。  
+
+1. ownerZombieCountという名前のマッピングを作成し、キーはaddress、バリューはuintを設定せよ。
+
+```
 // ここでマッピングを宣言するのだ
 
 ```
 
-- 正解
+#### 正解
 
 ```
-Zombie[] public zombies;
-
 // ここでマッピングを宣言するのだ
 mapping (uint => address) public zombieToOwner;
 mapping (address => uint) ownerZombieCount;

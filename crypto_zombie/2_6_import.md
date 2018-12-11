@@ -1,31 +1,24 @@
 ## 2-6: Import
 
 ### 概要
->Importの方法
+#### Importとは
 
 - コードが長くなりすぎないよういくつかのファイルを作った時に別のファイルからインポートする時に利用する
 
 
 ### コード
-- 問題
-```
-pragma solidity ^0.4.19;
+#### 問題  
 
+1. 新しく作ったzombiefeeding.solからzombiefactory.sol をインポートせよ。
+
+```
 // import ステートメントをここに書け
 
-contract ZombieFeeding is ZombieFactory {
-
-}
-
-
 ```
 
-- 正解
+#### 正解
 
 ```
-pragma solidity ^0.4.19;
+// import ステートメントをここに書け
 import "./zombiefactory.sol";
-contract ZombieFeeding is ZombieFactory {
-}
-
 ```
