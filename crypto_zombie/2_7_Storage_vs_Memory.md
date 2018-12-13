@@ -14,7 +14,7 @@
 
 ### コード
 #### 問題
-1. feedAndMultiplyという関数を作成せよ。そこに _zombieId (uint)と _targetDna (uint)の2つのパラメーターを設定せよ。この関数は publicで作成せよ。
+1. feedAndMultiplyという関数を作成せよ。そこに \_zombieId (uint)と \_targetDna (uint)の2つのパラメーターを設定せよ。この関数は publicで作成せよ。
 
 1. requireステートメントを追加してmsg.senderがこのゾンビのオーナーであるかどうかを確認せよ（createRandomZombie関数を作成した時のやり方を参考にせよ）。
 >```

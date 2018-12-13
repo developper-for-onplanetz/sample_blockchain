@@ -39,7 +39,4 @@ function _createZombie(string _name, uint _dna) private {
        ownerZombieCount[msg.sender]++;
        NewZombie(id, _name, _dna);
    }
-// ここでマッピングを宣言するのだ
-mapping (uint => address) public zombieToOwner;
-mapping (address => uint) ownerZombieCount;
 ```
