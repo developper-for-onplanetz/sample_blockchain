@@ -1,4 +1,4 @@
-## 2-8: Interface
+## 2-10: Interface
 
 ### 概要
 #### interfaceの定義方法

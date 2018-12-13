@@ -1,4 +1,4 @@
-##  Ownable Contract
+## 3-2: Ownable Contract
 
 ### 概要
 #### Ownable コントラクト

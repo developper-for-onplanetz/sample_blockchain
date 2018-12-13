@@ -1,10 +1,7 @@
-## 2-10: Use Interface
+## 2-11: Use Interface
 
 ### 概要
 #### interfaceの使用方法
-
-- Interfaceとは
->ブロックチェーン上の他人のコントラクトとやり取りする為に使用する
 
 - publicやexternalである場合にのみ使用可能
 

@@ -1,4 +1,4 @@
-## 2-9 More on Function Visibility
+## 2-9: More on Function Visibility
 
 ### 概要
 #### InternalとExternal
