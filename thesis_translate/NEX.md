@@ -54,36 +54,108 @@ NEXは、ライセンスされた第三者のグローバルネットワーク�
 ## 1 Introduction
 > Cryptocurrency markets have grown enormously in recent years, from a daily trade volume of $60 million in January of 2015 to more than $8 billion in November of 2017 [2].
 
+暗号通貨市場は、近年、2015年1月の年間取引額6,000万ドルから、2017年11月の80億ドル以上に膨大な伸びを示しています
+
 > Despite the fact that most cryptocurrencies are secured by decentralized architectures, almost all trades between currencies take place on centralized exchanges, where funds must be deposited under the control of the entity facilitating exchange.
+
+暗号通貨の大部分は、分散アーキテクチャによって保護されているにもかかわらず、通貨間のほぼすべての取引は、中央集権型取引所のような、交換を容易にするエンティティの管理下に資金を入金しなければならない取引所によって行われています。
 
 > This layer of centralization puts user funds at risk to hackers and platform managers. Most famously, millions of dollars worth of Bitcoin were stolen from Mt. Gox in 2011, and again from Bitfinex in 2016 [29, 21].
 
+この中央集権化のレイヤーは、ユーザーの資金をハッカーやプラットフォーム管理者に危険にさらします。何百万ドルものBitcoinが盗まれた事例として最も有名なのは、2011年に発生したMt.Goxの事件、2016年のBitfinexの事件などがあげられます。
+
 > Recently, decentralized exchanges have emerged to allow users to trade without giving up control of their funds [28, 3].
+
+最近、分散型取引所が出現し、ユーザーは資金を取引所の管理化に置くことなく取引できるようになりました
 
 > Under these systems, trades are executed by smart contracts on a blockchain, removing the need for a centralized third-party to control user accounts.
 
+これらのシステムでは、ブロックチェーン上のスマートコントラクトによって取引が実行されるため、集中管理された第三者がユーザーアカウントを制御する必要がなくなります
+
 > While these exchanges succeed at their primary goal of decreasing third-party risk, their success comes at the cost of a huge loss of trading performance.
+
+分散型取引は、第一の目標である第三者のリスクを減らすという観点では成り立ちますが、取引パフォーマンスの大幅な低下を犠牲にしています。
 
 > Smart contracts are far too slow to execute the complex matching logic of order books on high-volume, centralized exchanges.
 
+スマートコントラクトは、大量かつ集中的な取引所での注文書の複雑なマッチングロジックを実行するにはあまりにも遅すぎるためです。
+
 > In practice, this means that users cannot execute complex trades, and presents opportunities for arbitrage on stale orders [11].
+
+実際には、これはユーザーが複雑な取引を実行することができず、古い注文に対する裁定取引しか出来ないことを意味します。
 
 > Decentralized exchanges also tend to have problems trading cryptocurrencies across chains or against national currencies.
 
+また分散型取引所では、チェーンや国の通貨をまたいで暗号通貨を取引する際に問題が発生する傾向があります。
+
 > This is because smart contracts operating on one chain have no means of reasoning about transactions on another.
+
+これは、あるチェーン上で動作しているスマートコントラクトが他のチェーン上のトランザクションについて推論する手段を持たないためです。
 
 > While mechanisms such as atomic swaps have been proposed to allow a DEX to trade assets between independent chains (for example, trading Bitcoin for Ethereum), none of these mechanisms have achieved widespread use [18].
 
+DEXが独立したチェーン間で資産を取引することを可能にするためのアトミックスワップなどのメカニズムが提案されているが（例えば、Bitcoin for Ethereumの取引）、これらのメカニズムのどれもが普及していないのが現状です。
+
 > Today, users who want to trade currencies across chains or against national currencies must use centralized exchanges.
+
+今日、チェーンや国の通貨で通貨を取引したいユーザーは、中央集権型取引所を使用する必要があります。
 
 > If centralized exchanges provide speed and flexibility, and decentralized exchanges provide security, then it is natural to ask: can a hybrid system provide the best of both worlds?
 
+中央集権型取引所がスピードと柔軟性を提供し、分散型取引所がセキュリティを提供するならば、ハイブリッドシステムは両世界のベストを提供できるのかは当然の疑問かと思います。
+
 > In this paper, we propose that the optimal mix of these properties is provided by a decentralized exchange with an off-chain matching engine.
+
+本論文では、これらの特性の最適な組み合わせが、オフチェーンマッチングエンジンを備えた分散型取引所によって提供されることを提案します。
 
 > Order matching is by far the most computationally expensive operation when running an exchange.
 
+オーダーマッチングは、取引所を稼動にあたり、計算上最もコストがかかる操作です。
+
 > By encapsulating this component in an off-chain service, we can reap enormous improvements in speed, and also support complex trades such as limit or market orders.
+
+オフチェーンサービスで、オーダーマッチングのコンポーネントをカプセル化することで、スピードの大幅な向上を実現し、リミットやマーケット発注などの複雑な取引もサポートできます
 
 > Similarly, an off-chain engine can act as a coordinator of transactions across chains, enabling a straightforward approach to cross-chain exchange.
 
+同様に、オフチェーンエンジンは、チェーン間のトランザクションのコーディネーターとして機能し、クロスチェーン交換に対する直接的なアプローチを可能にします。
+
 > By committing orders on-chain as they are matched—with provable deterministic behavior—we can also retain the security benefits of traditional DEXs.
+
+実証可能な決定論的な振る舞いと一致してチェーン上の注文をコミットすることにより、従来のDEXのセキュリティ上のメリットも保持できます
+
+> Exchange is a key component and enabler of a broader ecosystem of decentralized applications.　
+
+取引所は、分散アプリケーションのより広いエコシステムの重要なコンポーネントであり、可能にします。
+
+> By creating the first high performance API for decentralized cross-chain exchange, NEX enables　many new possibilities for and interactions with such applications.
+
+分散型のクロスチェーン交換用の高性能APIを最初に作成することにより、NEXはそのようなアプリケーションの多くの新しい可能性と相互作用を可能にします。
+
+> For example, if a website takes　payment in GAS and a user holds only ETH in their wallet, NEX will allow the user to convert some　portion of their holdings and send it to the website, directly from their existing address.
+
+たとえば、WebサイトがGASで支払いを行い、ユーザーがウォレット内にETHのみを保持している場合、NEXはユーザーが持ち物の一部を変換し、既存のアドレスから直接Webサイトに送信することを許可します。
+
+> Further, this interaction can occur seamlessly in a user’s browser. The user simply clicks a button on the website: this opens a pre-populated transaction window that will make the necessary conversion then send the transaction.
+
+さらに、この相互作用は、ユーザのブラウザにおいてシームレスに実行することが可能であり、ユーザはウェブサイトのボタンをクリックするだけで、必要な変換を行ってからトランザクションを送信する事前入力済みのトランザクションウィンドウが開きます。
+
+> To support such an ecosystem, we have developed a cross-chain browser extension that allows websites to communicate with user accounts and the NEX matching engine.
+
+このようなエコシステムをサポートするために、私たちはウェブサイトがユーザーアカウントとNEXマッチングエンジンと通信できるようにするクロスチェーンブラウザエクステンションを開発しました。
+
+> Neon Exchange (NEX) is a new decentralized exchange that embodies these ideas. This white paper presents our vision for the NEX platform, the performance benefits of our technical approach, and how NEX will shape the broader cryptocurrency ecosystem. We also discuss our roadmap over the coming months and plans for a public token sale.
+
+ネオンエクスチェンジ（NEX）は、これらのアイデアを具体化した新しい分散型エクスチェンジです。このホワイトペーパーでは、NEXプラットフォームのビジョン、技術的アプローチのパフォーマンスメリット、NEXが広範な暗号化エコシステムを形成する仕組みについて説明します。また、今後数ヶ月にわたるロードマップと公開トークン販売の計画についても検討します。
+
+## 2 Background
+### 2.1 Blockchain and Smart Contracts
+> A blockchain is a decentralized ledger that can record transactions between two parties in a verifiable and permanent way without the need for a central authority [26].
+
+ブロックチェーンは、中央権威の必要なしに、検証可能で恒久的な方法で2者間のトランザクションを記録できる分散型元帳です。 
+
+> In 2008, Bitcoin emerged as the first public blockchain with large-scale adoption as a digital currency. Other chains have since attempted to improve on this technology. Most notably, Ethereum launched in 2015 as the first blockchain with programmable, Turing complete smart contracts [30].
+
+> Smart contracts allow developers to publish programs on a blockchain that anyone can inspect, and that will deterministically execute to accomplish complex goals in a way verifiable to all involved third parties.
+
+> For example, a smart contract might accept incoming funds from a user, then release them at a certain date, or collect funds from a series of users and split them evenly. These smart contracts are what make possible more sophisticated distributed on-chain applications such as decentralized exchanges.

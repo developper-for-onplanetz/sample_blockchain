@@ -2,6 +2,8 @@
 
 [原著](https://arxiv.org/pdf/1809.09044.pdf)
 
+# Abstract
+
 > Light clients, also known as Simple Payment Verification (SPV) clients, are nodes which only download a small portion of the data in a blockchain, and use indirect means to verify that a given chain is valid.
 
 Light clients（Simple Payment Verification（SPV）clientとも呼ばれる）は、ブロックチェーン内のデータの一部をダウンロードするノードであり、間接的な手段を使用して特定のチェーンが有効であることを検証します。
