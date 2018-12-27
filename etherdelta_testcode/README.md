@@ -38,6 +38,5 @@ var mnemonic = 'your mnemonic';
 - exec deploy
 ```
 node deploy.js --address="your address" --admin="your address" --feeAccount="your address" --accountLevelsAddr="your address"  --sendImmediately=True
+// make sure to change your address to be composed of only SMALL letters
 ```
-
-
