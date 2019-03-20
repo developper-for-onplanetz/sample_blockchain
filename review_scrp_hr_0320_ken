@@ -1,0 +1,13 @@
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+
+target_url = "https://hrtechnavi.jp/lab/hrtech-chaosmap/"
+
+html = urlopen(target_url)
+data = html.read()
+html = data.decode('utf-8')
+
+soup = BeautifulSoup(html, 'html.parser')
+
+data = soup.select("h3 + p")
+print(data)
